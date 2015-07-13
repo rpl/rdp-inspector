@@ -17,7 +17,37 @@ const { PacketsToolbar } = require("./packets-toolbar");
 const { Splitter } = require("./splitter");
 
 // Shortcuts
-const { DIV } = Reps.DOM;
+const { DIV, SPAN } = Reps.DOM;
+
+var PacketsDirectionsBar = React.createClass({
+/** @lends PacketsDirectionsBar */
+
+  displayName: "PacketsDirectionsBar",
+
+  render: function() {
+    return DIV({
+      id: "packetsDirectionsBar",
+      style: {
+        position: "relative",
+        height: "24px"
+      }
+    }, SPAN({ style: {
+          position: "absolute",
+          top: "0px",
+          left: "10px",
+          fontWeight: "bold",
+          fontSize: "1.2em"
+        }, key: "server"}, "Server"),
+        SPAN({ style: {
+          position: "absolute",
+          top: "0px",
+          right: "10px",
+          fontWeight: "bold",
+          fontSize: "1.2em"
+        }, key: "client"}, "Client")
+    );
+  }
+});
 
 /**
  * @template This template renders 'Packets' tab body.
@@ -42,6 +72,7 @@ var PacketsPanel = React.createClass({
         packetCacheEnabled: this.props.packetCacheEnabled,
         paused: this.props.paused
       }),
+      React.createElement(PacketsDirectionsBar, {}),
       PacketList({
         data: this.props.packets,
         actions: this.props.actions,

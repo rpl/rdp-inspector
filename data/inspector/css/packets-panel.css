@@ -155,7 +155,7 @@
 
 .packetsPanelBox .list {
   /* xxxHonza: minus the toolbar height*/
-  height: calc(100% - 30px);
+  height: calc(100% - 54px);
   overflow: auto;
   padding: 10px;
 }
