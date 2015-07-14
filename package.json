@@ -73,7 +73,7 @@
     }
   ],
   "dependencies": {
-    "firebug.sdk": "~0.6.2"
+    "firebug.sdk": "git://github.com/firebug/firebug.sdk"
   },
   "devDependencies": {
     "eslint": "^0.21.0",
