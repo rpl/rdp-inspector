@@ -19,17 +19,20 @@ const { Splitter } = require("./splitter");
 // Shortcuts
 const { DIV, SPAN } = Reps.DOM;
 
-var PacketsDirectionsBar = React.createClass({
-/** @lends PacketsDirectionsBar */
+var PacketsParticipantsBar = React.createClass({
+/** @lends PacketsParticipantsBar */
 
-  displayName: "PacketsDirectionsBar",
+  displayName: "PacketsParticipantsBar",
 
   render: function() {
     return DIV({
-      id: "packetsDirectionsBar",
+      id: "packetsParticipantsBar",
       style: {
         position: "relative",
-        height: "24px"
+        height: "24px",
+        borderBottom: "1px solid #aaaaaa",
+        boxShadow: "0px 2px 2px 0px #aaaaaa",
+        zIndex: "1000"
       }
     }, SPAN({ style: {
           position: "absolute",
@@ -37,14 +40,14 @@ var PacketsDirectionsBar = React.createClass({
           left: "10px",
           fontWeight: "bold",
           fontSize: "1.2em"
-        }, key: "server"}, "Server"),
+        }, key: "serverParticipant"}, Locale.$STR("rdpInspector.label.serverParticipant")),
         SPAN({ style: {
           position: "absolute",
           top: "0px",
           right: "10px",
           fontWeight: "bold",
           fontSize: "1.2em"
-        }, key: "client"}, "Client")
+        }, key: "clientParticipant"}, Locale.$STR("rdpInspector.label.clientParticipant"))
     );
   }
 });
@@ -72,7 +75,7 @@ var PacketsPanel = React.createClass({
         packetCacheEnabled: this.props.packetCacheEnabled,
         paused: this.props.paused
       }),
-      React.createElement(PacketsDirectionsBar, {}),
+      React.createElement(PacketsParticipantsBar, {}),
       PacketList({
         data: this.props.packets,
         actions: this.props.actions,
