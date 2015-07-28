@@ -32,7 +32,7 @@ var PacketsParticipantsBar = React.createClass({
         height: "24px",
         borderBottom: "1px solid #aaaaaa",
         boxShadow: "0px 2px 2px 0px #aaaaaa",
-        zIndex: "1000"
+        zIndex: "900"
       }
     }, SPAN({ style: {
           position: "absolute",
