@@ -25,7 +25,7 @@
     "karma-coverage": "CODE_COVERAGE=true npm run karma-tests -- --reporters spec,coverage",
     "watch-karma-tests": "karma start --no-single-run --reporters spec --auto-watch",
     "watch-karma-coverage": "CODE_COVERAGE=true npm run watch-karma-tests",
-    "jpm-tests": "jpm test",
+    "jpm-tests": "jpm test --prefs=test/fixtures/test-prefs.json",
     "travis-ci": "npm run karma-coverage && npm run lint",
     "lint-content": "eslint data/inspector && eslint karma-tests/",
     "lint-addon": "eslint lib",
